@@ -5,19 +5,20 @@ import * as authConfigs from '@/.env'
 export default class AuthService {
   authenticated = this.isAuthenticated()
   authNotifier = new EventEmitter()
-  auth0 = new auth0.WebAuth({
-    domain: authConfigs.AUTH0_DOMAIN,
-    clientID: authConfigs.AUTH0_CLIENT_ID,
-    redirectUri: 'http://localhost:8080' + authConfigs.CALLBACK_URL,
-    audience: authConfigs.AUTH0_AUDIENCE,
-    responseType: 'token id_token',
-    scope: 'openid'
-  })
+
   constructor () {
     this.login = this.login.bind(this)
     this.setSession = this.setSession.bind(this)
     this.logout = this.logout.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
+    this.auth0 = new auth0.WebAuth({
+      domain: authConfigs.AUTH0_DOMAIN,
+      clientID: authConfigs.AUTH0_CLIENT_ID,
+      redirectUri: authConfigs.CALLBACK_URL,
+      audience: authConfigs.AUTH0_AUDIENCE,
+      responseType: 'token id_token',
+      scope: 'openid'
+    })
   }
 
   handleAuthentication () {
