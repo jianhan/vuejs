@@ -16,8 +16,11 @@
   "dependencies": {
     "EventEmitter": "^1.0.0",
     "auth0-js": "^9.1.0",
+    "axios": "^0.17.1",
     "bootstrap": "4.0.0-beta.2",
     "bootstrap-vue": "^1.4.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

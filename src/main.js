@@ -6,9 +6,14 @@ import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-Vue.config.productionTip = false
+import moment from 'moment'
+import axios from '@/http/axios'
 
+Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Object.definePrototype(Vue.prototype, '$moment', { value: moment })
+Object.definePrototype(Vue.prototype, '$axios', { value: axios })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
